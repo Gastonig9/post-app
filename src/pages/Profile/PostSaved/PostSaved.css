@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Gajraj+One&family=Josefin+Sans:wght@600&family=Kanit:ital,wght@1,300&family=Lalezar&family=Mukta:wght@300&family=Oswald:wght@500&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,400;1,100;1,300;1,500&family=Secular+One&family=Tilt+Prism&display=swap");
+
+.post-save-contain {
+    font-family: "Secular One";
+    border-top: 3px solid black;
+    padding: 40px 60px;
+}
+
+.no-post {
+    padding: 40px 60px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.no-post span {
+    color: #640c00;
+}
+
+
+#title-fav {
+    text-align: center;
+    color: #640c00;
+}
+
+.post-s {
+    width: 85%;
+    padding: 25px;
+    margin-bottom: 10px;
+    background-color: #640c00;
+    color: white;
+}
+
+/* .post-s:hover {
+    background-color: white;
+    color: #640c00;
+    cursor: pointer;
+    transform: translate(90px);
+    transition: all 0.3s ease;
+} */
+
+.post-s h5 {
+    font-size: 35px;
+}
+
+.links-fp {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links-fp a {
+    color: white;
+    text-decoration: none;
+}
+
+.links-fp button {
+    border: none;
+    padding: 10px;
+    color: #640c00;
+}

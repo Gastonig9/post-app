@@ -1,0 +1,80 @@
+.post-detail-contain {
+    padding: 50px 20px;
+    display: flex;
+    font-family: "Secular One";
+}
+
+.post-detail {
+    width: 75%;
+    border-right: 1px solid black;
+}
+
+/* POST RECOMMENDEED */
+
+.post-recommended {
+    padding: 20px 20px;
+}
+
+.post-recommended .post-r-u {
+    display: flex;
+    padding: 20px;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.post-recommended .post-r-u:hover {
+    background-color: #640c00;
+    color: white;
+    cursor: pointer;
+}
+
+.post-recommended .post-r-u img {
+    width: 220px;
+    height: 100px;
+}
+
+.post-recommended .post-r-u h2 {
+    font-size: 15px;
+}
+
+.separador {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+/* POST DETAIL */
+
+.post-detail h1 {
+    color: #640c00;
+    text-decoration: underline;
+}
+
+.post-detail small {
+    color: #640c00;
+}
+
+.post-detail .description-p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.post-detail .text-p {
+    width: 70%;
+}
+
+.post-detail img {
+    border: 2px solid black;
+    margin-bottom: 50px;
+}
+
+/* FAV SECTION */
+
+.post-detail .fav-section {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+

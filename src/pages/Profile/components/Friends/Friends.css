@@ -1,0 +1,30 @@
+.friends-contain {
+  width: 50%;
+  padding: 20px;
+  margin-top: 0px;
+}
+
+.friends-contain img {
+  display: block;
+  width: 100%;
+  height: 100px;
+  margin: auto;
+}
+
+.friends-contain h6 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.friends-contain a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #640c00;
+  color: white;
+  padding: 10px;
+}
+
+.title-contact {
+  margin-bottom: 0px;
+}

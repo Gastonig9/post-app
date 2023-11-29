@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Gajraj+One&family=Josefin+Sans:wght@600&family=Kanit:ital,wght@1,300&family=Lalezar&family=Mukta:wght@300&family=Oswald:wght@500&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,400;1,100;1,300;1,500&family=Secular+One&family=Tilt+Prism&display=swap');
+
+.navbarLg-contain {
+    width: 100%;
+
+}
+
+.navbarLg-contain .separador-sup {
+    width: 100%;
+    height: 7px;
+    background-color: #0a0a0a;
+}
+
+.navbarLg-contain .separador-inf {
+    width: 100%;
+    height: 4px;
+    background-color: #434039;
+    margin-top: 5px;
+}
+
+.navbarLg-contain .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px;
+}
+
+
+.navbarLg-contain .content h5 {
+    font-size: 21px;
+    font-family: Roboto;
+}
+
+.navbarLg-contain .content .session {
+    display: flex;
+    gap: 10px;
+}
+
+.navbarLg-contain .content .session button {
+    padding: 10px 40px;
+    background-color: #640c00;
+    color: white;
+}
+
+.navbarLg-contain .content .session button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+}
+
+/* DROPDOWN */
+
+.drop-contain {
+    width: 18%;
+    font-family: "Black Ops One";
+}
+
+.drop-contain a {
+    width: 100%;
+    background-color: #640c00;
+    color: white;
+    padding: 10px 30px;
+}
+
+.drop-contain a:hover {
+    background-color: white;
+    color: black;
+}
+
+.drop-contain ul {
+    background-color: #640c00;
+    padding: 10px 30px;
+}

@@ -1,0 +1,122 @@
+/* LOGIN */
+
+.autentication-contain {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-family: "Secular One";
+  padding: 100px 120px;
+}
+
+.autentication-contain .form-info {
+  width: 40%;
+}
+
+
+.form-login {
+  width: 65%;
+}
+
+.form-login h1 {
+  font-size: 56px;
+  color: #640c00;
+}
+
+.form-login label {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-login input {
+  display: block;
+  width: 70%;
+  height: 80px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.form-login input:focus {
+  border-top: none;
+  border-left: none;
+  border-right: 5px solid #640c00;
+  border-bottom: 5px solid #640c00;
+}
+
+.form-login a {
+  margin-bottom: 55px;
+}
+
+.form-login button {
+  display: block;
+  margin-top: 25px;
+  background-color: #640c00;
+  color: white;
+  padding: 10px 30px;
+}
+
+
+/* REGISTER */
+
+.form-register {
+    width: 100%;
+    padding: 100px 120px;
+    font-family: "Secular One";
+  }
+  
+  .form-register h1 {
+    font-size: 56px;
+    color: #640c00;
+  }
+  
+  .form-register label {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .form-register input {
+    display: block;
+    width: 50%;
+    height: 80px;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .form-registerinput:focus {
+    border-top: none;
+    border-left: none;
+    border-right: 5px solid #640c00;
+    border-bottom: 5px solid #640c00;
+  }
+  
+  .form-register a {
+    margin-bottom: 55px;
+  }
+  
+  .form-register button {
+    display: block;
+    margin-top: 25px;
+    background-color: #640c00;
+    color: white;
+    padding: 10px 30px;
+  }
+
+
+  .message-nt {
+    width: 20%;
+    background-color: white;
+    color: #13eb21;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .message-nt h4 {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .cuenta {
+    margin-top: 20px;
+  }
+

@@ -1,0 +1,25 @@
+form textarea {
+    width: 100%;
+    height: 200px;
+    display: block;
+    margin-bottom: 20px;
+    padding: 15px;
+    resize: none;
+}
+
+form textarea:focus {
+    border: 4px solid #640c00;
+}
+
+form .update-button {
+    width: 100%;
+    background-color: #640c00;
+    color: white;
+    padding: 10px 20px;
+}
+
+form .update-button:hover {
+    background-color: white;
+    color: #640c00;
+    transition: all 0.2s ease;
+}

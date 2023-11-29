@@ -1,0 +1,16 @@
+.home-contain {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home-contain .colm-1 {
+    width: 15%;
+}
+
+.home-contain .colm-2 {
+    width: 100%;
+}
+
+.home-contain .colm-3 {
+    width: 15%;
+}
