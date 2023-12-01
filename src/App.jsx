@@ -10,9 +10,12 @@ import Categoria from "./pages/Categoria/Categoria";
 import PostDetail from "./pages/Home/components/PostDetail/PostDetail";
 import Auth from "./pages/Auth/Auth";
 import Profile from "./pages/Profile/Profile";
+import { useContext } from "react";
+import { setContext } from "./context/context";
 
 
 function App() {
+  const { user } = useContext(setContext);
   return (
     <>
       <PostProvider>

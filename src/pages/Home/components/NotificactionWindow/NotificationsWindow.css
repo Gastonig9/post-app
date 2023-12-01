@@ -1,0 +1,56 @@
+/* VENTANA NOTIFICACIONES */
+
+.ventana-notificaciones {
+    width: 600px;
+    height: auto;
+    padding: 25px 25px;
+    position: fixed;
+    background-color: white;
+    top: 100px;
+    left: 35%;
+    border: 9px solid #640c00;
+    overflow-y: scroll;
+  }
+  
+  .ventana-notificaciones .noti-title {
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .ventana-notificaciones .noti-title h1 {
+    color: #640c00;
+  }
+  
+  .ventana-notificaciones .noti-title i {
+      font-size: 40px;
+      color: #640c00;
+      cursor: pointer;
+  }
+
+  .notificacion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .notificacion img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .notificacion .notificacion-botones {
+    display: flex;
+    gap: 10px;
+  }
+
+  .notificacion .notificacion-botones button:first-of-type {
+    background-color: green;
+    color: white;
+  }
+
+  .notificacion .notificacion-botones button:last-child {
+    background-color: #640c00;
+    color: white;
+  }

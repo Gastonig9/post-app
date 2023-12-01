@@ -2,6 +2,7 @@ class UserDTO {
     constructor(user) {
       this.email = user.email;
       this.lastName = user.lastName;
+      this.profileImg = user.profileImg
       this.name = user.name;
       this.bio = user.bio
       this.friendRequests = user.friendRequests || [];

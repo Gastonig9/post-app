@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Gajraj+One&family=Josefin+Sans:wght@600&family=Kanit:ital,wght@1,300&family=Lalezar&family=Mukta:wght@300&family=Oswald:wght@500&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,400;1,100;1,300;1,500&family=Secular+One&family=Tilt+Prism&display=swap');
+
+.profile-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.profile-info .name-email {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.profile-info span {
+    color: #640c00;
+}
+
+.profile-info h6 {
+    width: 100%;
+    height: auto;
+    color: rgb(61, 60, 60);
+    font-size: 16px;
+}
+
+.profile-info p {
+    width: 100%;
+}
+
+.profile-info img {
+    width: 300px;
+    height: 300px;
+
+}
+
+.profile-info button {
+    background-color: #640c00;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    margin-right: 5px;
+}
+
+.profile-info textarea {
+    resize: none;
+    padding: 10px;
+}
+
+.profile-info textarea:focus {
+    border-right: 5px solid #640c00;
+    border-bottom: 5px solid #640c00;
+    border-left: none;
+    border-top: none;
+}

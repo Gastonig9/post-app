@@ -29,6 +29,7 @@ export const postRequest = async (url, pBody) => {
 
     if (response.status === 200) {
       const data = await response.json();
+      console.log("La data", data)
       return data;
     } else if (response.status === 500) {
       const data = await response.json();

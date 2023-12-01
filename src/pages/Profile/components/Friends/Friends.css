@@ -1,30 +1,35 @@
+.title-contact {
+  padding: 0px 40px;
+}
+
 .friends-contain {
-  width: 50%;
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 40px;
+  flex-direction: row;
+  overflow-x: scroll;
   padding: 20px;
-  margin-top: 0px;
+}
+
+.friends-contain .contact {
+  width: 20%;
+}
+
+.friends-contain .contact h6 {
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.friends-contain .contact button {
+  width: 100%;
+  font-size: 11px;
+  background-color: #640c00;
+  color: white;
+  border: none;
 }
 
 .friends-contain img {
-  display: block;
   width: 100%;
   height: 100px;
-  margin: auto;
-}
-
-.friends-contain h6 {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.friends-contain a {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  background-color: #640c00;
-  color: white;
-  padding: 10px;
-}
-
-.title-contact {
-  margin-bottom: 0px;
 }

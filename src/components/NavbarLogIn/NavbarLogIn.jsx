@@ -6,11 +6,11 @@ import { logout } from "../../helpers/helpers";
 import { useNavigate } from "react-router-dom";
 const NavbarLogIn = () => {
   const { user } = useContext(setContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout(navigate)
-  }
+    logout(navigate);
+  };
 
   return (
     <div className="navbarLg-contain">

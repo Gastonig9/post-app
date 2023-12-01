@@ -6,7 +6,7 @@ const Post = ({ dataPost }) => {
     <div className="post-contain">
       {dataPost.map((post) => {
         return (
-          <div className="post">
+          <div key={post._id} className="post">
             <h1>{post.title}</h1>
             <h5>{post.category}</h5>
             <img src={post.images[0]} alt={post.title} />

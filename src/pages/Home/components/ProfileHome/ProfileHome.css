@@ -1,0 +1,115 @@
+/* IMG */
+
+.panel-img {
+  display: flex;
+  justify-content: center;
+}
+
+.panel-img img {
+  width: 150px;
+  height: 150px;
+}
+
+/* FAVORITOS */
+
+.panel-link-favorite {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 5px 0px;
+}
+
+.panel-link-favorite:hover {
+  background-color: #640c00;
+  color: white;
+  cursor: pointer;
+}
+
+.panel-link-favorite h1 {
+  font-size: 23px;
+}
+
+.panel-link-favorite p {
+  background-color: #640c00;
+  color: white;
+  padding: 0px 15px;
+  border-radius: 50px;
+}
+
+.panel-link-favorite p:hover {
+  background-color: white;
+  color: brown;
+}
+
+/* NOTIFIACIONES */
+
+.panel-link-solicitudes {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 5px 0px;
+}
+
+.panel-link-solicitudes:hover {
+  background-color: #640c00;
+  color: white;
+  cursor: pointer;
+}
+
+.panel-link-solicitudes h1 {
+  font-size: 23px;
+}
+
+.panel-link-solicitudes p {
+  background-color: #640c00;
+  color: white;
+  padding: 0px 15px;
+  border-radius: 50px;
+}
+
+.panel-link-solicitudes p:hover {
+  background-color: white;
+  color: brown;
+}
+
+/* Contactos */
+
+.panel-link-contactos {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 5px 0px;
+}
+
+.panel-link-contactos:hover {
+  background-color: #640c00;
+  color: white;
+  cursor: pointer;
+}
+
+.panel-link-contactos h1 {
+  font-size: 23px;
+}
+
+.panel-link-contactos p {
+  background-color: #640c00;
+  color: white;
+  padding: 0px 15px;
+  border-radius: 50px;
+}
+
+.panel-link-contactos p:hover {
+  background-color: white;
+  color: #640c00;
+}
+
+
