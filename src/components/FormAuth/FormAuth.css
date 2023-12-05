@@ -54,6 +54,11 @@
   padding: 10px 30px;
 }
 
+.password-incorrect {
+  color: red;
+  font-family: "Secular One";
+}
+
 
 /* REGISTER */
 

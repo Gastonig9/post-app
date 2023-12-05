@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Gajraj+One&family=Josefin+Sans:wght@600&family=Kanit:ital,wght@1,300&family=Lalezar&family=Mukta:wght@300&family=Oswald:wght@500&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,400;1,100;1,300;1,500&family=Secular+One&family=Tilt+Prism&display=swap');
+
+.create-contain {
+    padding: 20px 60px;
+    font-family: "Secular One";
+}
+
+.create-contain h6 {
+    color: #640c00;
+    font-size: 10px;
+    font-weight: 200;
+}
+
+.create-contain h1 {
+    font-size: 49px;
+}
+
+.create-contain h1 span {
+    color: #640c00;
+}
+
+.create-contain form {
+    width: 100%;
+}
+
+.create-contain form label {
+    color: #640c00;
+}
+
+.create-contain form input {
+    display: block;
+    width: 55%;
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.create-contain form input:focus {
+    border: 6px solid #640c00;
+    border-top: none;
+    border-left: none;
+}
+
+.create-contain form textarea {
+    display: block;
+    width: 55%;
+    height: 200px;
+    margin-bottom: 10px;
+    resize: none;
+    padding: 20px;
+}
+
+.create-contain form textarea:focus {
+    border: 6px solid #640c00;
+    border-top: none;
+    border-left: none;
+}
+
+.create-contain form select {
+    display: block;
+    margin-top: 10px;
+    width: 40%;
+    padding: 20px;
+}
+
+.create-contain form select:focus {
+    border: 6px solid #640c00;
+    border-top: none;
+    border-left: none;
+}
+
+.create-contain form .buttonP {
+    width: 20%;
+    height: 40px;
+    background-color: #640c00;
+    color: white;
+    margin-top: 20px;
+}
+
+.create-contain form .buttonP:hover {
+    color: #640c00;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+.create-contain form .buttonS {
+    width: 20%;
+    height: 40px;
+    background-color: rgb(46, 224, 46);
+    color: black;
+    margin-top: 20px;
+}

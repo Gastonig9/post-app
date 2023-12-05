@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { postRequest, login, register } from "../../helpers/helpers";
+import { useEffect, useState } from "react";
+import { login, register } from "../../helpers/helpers";
 import "./FormAuth.css";
 import { useNavigate } from "react-router-dom";
 
@@ -13,9 +13,10 @@ const FormAuth = ({ choose }) => {
     lastName: "",
     email: "",
     password: "",
-    profileImg: null,
+    profileImg: "",
   });
 
+  const [passwordIncorrect, setpasswordIncorrect] = useState(false)
   const [responseMessage, setResponseMessage] = useState("");
   const [loader, setloader] = useState(false);
   const navigate = useNavigate();
@@ -36,12 +37,18 @@ const FormAuth = ({ choose }) => {
     });
   };
 
-  const handleAvatar = (e) => {
-    const avatarFile = e.target.files[0];
-    setFormData({
-      ...formData,
-      profileImg: avatarFile,
-    });
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData((prevData) => ({
+          ...prevData,
+          profileImg: reader.result,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleRegister = async (e) => {
@@ -59,8 +66,13 @@ const FormAuth = ({ choose }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    await login(formDataLogin.email, formDataLogin.password, navigate);
+    await login(formDataLogin.email, formDataLogin.password, navigate, setpasswordIncorrect);
   };
+
+  useEffect(() => {
+    console.log(formData.profileImg)
+  }, [formData.profileImg])
+  
 
   return (
     <>
@@ -87,6 +99,7 @@ const FormAuth = ({ choose }) => {
 
             <a href="#">¿Olvidaste tu contraseña?</a>
             <p>¿No tienes una cuenta? <a href="/auth/register">Registrate</a></p>
+            {passwordIncorrect && <p className="password-incorrect">Contraseña incorrecta</p> }
             <button type="submit">Ingresar</button>
           </form>
           <div className="form-info">
@@ -109,6 +122,7 @@ const FormAuth = ({ choose }) => {
             placeholder="juanp@gmail.com"
             onChange={handleInputChange}
             value={formData.email}
+            autoComplete="off"
             required
           />
 
@@ -120,6 +134,7 @@ const FormAuth = ({ choose }) => {
             onChange={handleInputChange}
             value={formData.name}
             required
+            autoComplete="off"
             minLength={3}
             maxLength={12}
           />
@@ -132,6 +147,7 @@ const FormAuth = ({ choose }) => {
             onChange={handleInputChange}
             value={formData.lastName}
             required
+            autoComplete="off"
             minLength={4}
             maxLength={12}
           />
@@ -146,7 +162,7 @@ const FormAuth = ({ choose }) => {
           />
 
           <label htmlFor="avatar">Avatar</label>
-          <input type="file" name="profileImg" onChange={handleAvatar} />
+          <input type="file" name="profileImg" accept="image/*" onChange={handleImageChange} />
 
           {responseMessage != "" ? (
             <div className="message-nt">

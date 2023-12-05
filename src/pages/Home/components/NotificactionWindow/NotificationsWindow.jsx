@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./NotificationsWindow.css";
 import { postRequest } from "../../../../helpers/helpers";
+import { io } from "socket.io-client";
 
-const NotificationsWindow = ({ notifications, closeWindow, userId }) => {
+const socket = io("/");
 
-  const handleAcceptRequest = async (requestId) => {
+const NotificationsWindow = ({ notifications, closeWindow, userId, toast }) => {
+
+  const handleAcceptRequest = async (requestId, senderId) => {
     try {
-      const response = await postRequest(`http://localhost:8080/api/user/accept-request/${userId}/${requestId}`)
-      console.log(response)
+       const response = await postRequest(
+        `http://localhost:8080/api/user/accept-request/${userId}/${senderId}/${requestId}`
+      );
+        toast.success(response.message)
+        window.location.reload()
+
     } catch (error) {
-      console.log(error)
+      toast.error("Ocurrio un error")
     }
-  }
+  };
 
   return (
     <div className="ventana-notificaciones">
@@ -20,27 +27,35 @@ const NotificationsWindow = ({ notifications, closeWindow, userId }) => {
         <i onClick={closeWindow} className="fa-solid fa-xmark"></i>
       </div>
       <hr />
-      {notifications.map((notification) => (
-        <>
+      {notifications.length > 0 ? (
+        notifications.map((notification) => (
           <div key={notification._id} className="notificacion">
             <img
               src={
-                notification.sender.profileImg ||
+                notification.sender?.profileImg ||
                 "https://i.ibb.co/RH3SZVz/user-dev.jpg"
               }
               alt=""
             />
             <p>
-              {notification.sender.name} {notification.sender.lastName}
+              {notification.sender?.name} {notification.sender?.lastName}
             </p>
             <div className="notificacion-botones">
-              <button onClick={() => { handleAcceptRequest(notification._id) }}>Aceptar</button>
-              <button>Rechazar</button>
+              <button
+                onClick={() =>
+                  handleAcceptRequest(notification._id, notification.sender._id)
+                }
+              >
+                Aceptar
+              </button>
+              {/* <button>Rechazar</button> */}
             </div>
+            <hr />
           </div>
-          <hr />
-        </>
-      ))}
+        ))
+      ) : (
+        <div>No tienes solicitudes</div>
+      )}
     </div>
   );
 };

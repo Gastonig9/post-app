@@ -55,7 +55,7 @@ const PostDetail = () => {
         <div className="post-detail">
           <div className="fav-section">
             <h6>{postDetail?.category}</h6>
-            <FavSection postId={pid} userId={user._id} />
+            <FavSection postId={pid} userId={user?._id} />
           </div>
           <h1>{postDetail?.title}</h1>
           <small>{postDetail?.date}</small>
@@ -64,10 +64,10 @@ const PostDetail = () => {
             <b>{postDetail?.description}</b>
           </p>
 
-          <img src={postDetail?.images[0]} alt="" />
+          <img src={postDetail?.image} alt="" />
 
           <p className="text-p">
-            {postDetail?.text ||
+            {postDetail?.cita ||
               "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores, anecessitatibus sapiente veritatis, minima voluptates temporaillo accusantium adipisci modi tempore ex id illum voluptate, numquam aut?Porro"}
           </p>
         </div>
@@ -78,7 +78,7 @@ const PostDetail = () => {
             <>
               <a href={`/view/${post._id}`}>
                 <div key={post._id} className="post-r-u">
-                  <img src={post?.images[0]} />
+                  <img src={post?.image} />
                   <h2>{post?.title}</h2>
                 </div>
               </a>

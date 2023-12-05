@@ -9,7 +9,7 @@ const Post = ({ dataPost }) => {
           <div key={post._id} className="post">
             <h1>{post.title}</h1>
             <h5>{post.category}</h5>
-            <img src={post.images[0]} alt={post.title} />
+            <img src={post.image} alt={post.title} />
             <p>
               {post.description || "nteger sollicitudin erat lacus, id ullamcorper leo elementum quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae"}
             </p>

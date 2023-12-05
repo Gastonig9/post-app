@@ -29,11 +29,13 @@ export const postRequest = async (url, pBody) => {
 
     if (response.status === 200) {
       const data = await response.json();
-      console.log("La data", data)
       return data;
     } else if (response.status === 500) {
       const data = await response.json();
-      console.error(data);
+      return data;
+    } else if (response.status === 401) {
+      const data = await response.json();
+      return data
     }
   } catch (error) {
     console.log(error);
@@ -131,7 +133,6 @@ export const register = async (
 
     setloader(true);
 
-    // Simular un tiempo de carga antes de detener el loader y mostrar el mensaje
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     setloader(false);
@@ -153,21 +154,24 @@ export const register = async (
   }
 };
 
-export const login = async (emailL, passwordL, navigate) => {
+// functions.js
+export const login = async (emailL, passwordL, navigate, setpasswordIncorrect) => {
   const dataBody = {
     email: emailL,
     password: passwordL,
   };
 
-  const response = await postRequest(
-    "http://localhost:8080/api/user/login",
-    dataBody
-  );
+  const response = await postRequest("http://localhost:8080/api/user/login", dataBody);
 
-  localStorage.setItem("token", response.user);
-  navigate("/");
-  window.location.reload();
+  if (response.code === 1) {
+    return setpasswordIncorrect(true);
+  } else if (response.user) {
+    localStorage.setItem("token", response.user);
+    navigate("/");
+    window.location.reload();
+  }
 };
+
 
 export const logout = (navigate) => {
   localStorage.removeItem("token");
@@ -179,11 +183,16 @@ export const decode = () => {
   const token = localStorage.getItem("token");
   if (!token) return null;
 
-  const decoded = jwtDecode(token);
-  const userDTO = new UserDTO(decoded.user);
-
-  return userDTO;
+  try {
+    const decoded = jwtDecode(token);
+    const userDTO = new UserDTO(decoded.user);
+    return userDTO;
+  } catch (error) {
+    console.error("Error decoding token:", error);
+    return null;
+  }
 };
+
 
 export const updateBio = async (uBio, id) => {
   const dataBio = {

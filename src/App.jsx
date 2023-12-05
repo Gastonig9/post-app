@@ -12,6 +12,8 @@ import Auth from "./pages/Auth/Auth";
 import Profile from "./pages/Profile/Profile";
 import { useContext } from "react";
 import { setContext } from "./context/context";
+import CreatePost from "./pages/CreatePost/CreatePost";
+import Premium from "./pages/Premium/Premium";
 
 
 function App() {
@@ -28,7 +30,10 @@ function App() {
             <Route path="/:categoria" element={<Categoria />} />
             <Route path="/view/:pid" element={<PostDetail />} />
             <Route path="/auth/:action" element={<Auth />} />
+            <Route path="/create-post" element={<CreatePost/>}></Route>
             <Route path="/profile/:uid" element={<Profile />}/>
+            <Route path="/premium" element={<Premium/>}></Route>
+            <Route path="*" element={<div>404 Not Found</div>}></Route>
           </Routes>
           <Footer />
         </BrowserRouter>

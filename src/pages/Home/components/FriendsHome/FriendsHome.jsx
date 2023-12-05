@@ -31,14 +31,15 @@ const FriendsHome = () => {
 
   const handleSendRequest = async (userSendId) => {
     try {
-      const response = await postRequest(
-        `http://localhost:8080/api/user/send-contact-request/from/${user._id}/to/${userSendId}`
-      );
-      if (response.message === "Solicitud de contacto enviada") {
+      const response = await postRequest(`http://localhost:8080/api/user/send-contact-request/from/${user._id}/to/${userSendId}`);
+      if (response.code === 1) {
         toast.success(response.message);
       }
-      if (response.message === "Ya has enviado solicitud a este usuario") {
+      if (response.code === 3) {
         toast.error(response.message);
+      }
+      if(response.code === 2) {
+        toast.error(response.message)
       }
     } catch (error) {
       console.log(error);

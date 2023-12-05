@@ -72,3 +72,8 @@
     background-color: #640c00;
     padding: 10px 30px;
 }
+
+.drop-contain .drop-premium {
+    background-color: rgb(255, 255, 64);
+    color: black;
+}

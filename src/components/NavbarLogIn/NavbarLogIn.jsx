@@ -1,17 +1,18 @@
 import "./NavbarLogIn.css";
-import { generateDateString } from "../../helpers/helpers";
-import { useContext } from "react";
+import { generateDateString, postRequest } from "../../helpers/helpers";
+import { useContext, useEffect } from "react";
 import { setContext } from "../../context/context";
 import { logout } from "../../helpers/helpers";
 import { useNavigate } from "react-router-dom";
 const NavbarLogIn = () => {
-  const { user } = useContext(setContext);
+  const { user, isPremium } = useContext(setContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout(navigate);
   };
 
+  
   return (
     <div className="navbarLg-contain">
       <div className="separador-sup"></div>
@@ -48,11 +49,21 @@ const NavbarLogIn = () => {
                   Mi perfil
                 </a>
               </li>
-              <li>
-                <a className="dropdown-item" href="/create-post">
-                  Crear post
-                </a>
-              </li>
+
+              {isPremium ? (
+                <li>
+                  <a className="dropdown-item" href="/create-post">
+                    Crear post
+                  </a>
+                </li>
+              ) : (
+                <li>
+                  <a className="dropdown-item drop-premium" href="/premium">
+                    Premium 👑​
+                  </a>
+                </li>
+              )}
+
               <li>
                 <a className="dropdown-item" href="#" onClick={handleLogout}>
                   Logout

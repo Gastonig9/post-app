@@ -9,11 +9,10 @@ import NotificationsWindow from "../NotificactionWindow/NotificationsWindow";
 const socket = io("/");
 
 const ProfileHome = () => {
-  const { user } = useContext(setContext);
+  const { user, isPremium } = useContext(setContext);
   const [userPanel, setuserPanel] = useState({});
   const [notificaciones, setnotificaciones] = useState([]);
   const [window, setWindow] = useState(false);
-  console.log(notificaciones)
 
   useEffect(() => {
     const fetchUserPanel = async () => {
@@ -43,28 +42,30 @@ const ProfileHome = () => {
     return () => {
       socket.disconnect();
     };
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     const getRequestF = async () => {
       try {
-        if(user && user._id) {
-          const response = await getRequest(`http://localhost:8080/api/user/get-request-friends/${user._id}`)
-          const friendRequest = response.requestF.friendRequests
-          console.log(friendRequest)
-          if(friendRequest.length > 0) {
-            setnotificaciones(friendRequest)
-            toast.info(`${user.name} tienes ${friendRequest.length} nueva solicitudes de contacto`)
+        if (user && user._id) {
+          const response = await getRequest(
+            `http://localhost:8080/api/user/get-request-friends/${user._id}`
+          );
+          const friendRequest = response.requestF.friendRequests;
+          if (friendRequest.length > 0) {
+            setnotificaciones(friendRequest);
+            toast.info(
+              `${user.name} tienes ${friendRequest.length} nueva solicitudes de contacto`
+            );
           }
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
-    getRequestF()
-  }, [user])
-  
+    getRequestF();
+  }, [user]);
 
   const handleSeeNotifications = () => {
     setWindow(!window);
@@ -72,6 +73,7 @@ const ProfileHome = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className="panel-img">
         <img src={userPanel.profileImg} alt="" />
       </div>
@@ -89,12 +91,22 @@ const ProfileHome = () => {
         <h1>Contactos</h1>
         <p>{userPanel.friends?.length}</p>
       </div>
+      <div className="panel-link-saldo">
+        <h1>Saldo</h1>
+        <p>{`$${userPanel.balance}`}</p>
+      </div>
+      {isPremium && (
+        <div className="isPremium">
+          <h1>Usuario Premium 👑</h1>
+        </div>
+      )}
 
       {window && (
         <NotificationsWindow
           notifications={notificaciones}
           closeWindow={() => setWindow(false)}
           userId={user._id}
+          toast={toast}
         />
       )}
     </>
