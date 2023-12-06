@@ -54,13 +54,7 @@ const FormAuth = ({ choose }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    await register(
-      formData,
-      setloader,
-      setResponseMessage,
-      setFormData,
-      navigate
-    );
+    await register(formData.name, formData.lastName, formData.profileImg, formData.email, formData.password, navigate)
   };
 
   const handleLogin = async (e) => {
@@ -68,10 +62,6 @@ const FormAuth = ({ choose }) => {
 
     await login(formDataLogin.email, formDataLogin.password, navigate, setpasswordIncorrect);
   };
-
-  useEffect(() => {
-    console.log(formData.profileImg)
-  }, [formData.profileImg])
   
 
   return (
@@ -87,6 +77,7 @@ const FormAuth = ({ choose }) => {
               placeholder="juanp@gmail.com"
               onChange={handleLoginChange}
               value={formDataLogin.email}
+              autoComplete="off"
             />
 
             <label htmlFor="password">Contraseña</label>

@@ -27,18 +27,17 @@ export const postRequest = async (url, pBody) => {
       body: JSON.stringify(pBody),
     });
 
-    if (response.status === 200) {
-      const data = await response.json();
+    const data = await response.json();
+
+    if (response.ok) {
       return data;
-    } else if (response.status === 500) {
-      const data = await response.json();
-      return data;
-    } else if (response.status === 401) {
-      const data = await response.json();
-      return data
+    } else {
+      console.error("Error during POST request:", response.status, data);
+      throw new Error(`Error during POST request: ${response.status}`);
     }
   } catch (error) {
-    console.log(error);
+    console.error("Error during POST request:", error);
+    throw new Error(`Error during POST request: ${error.message}`);
   }
 };
 
@@ -85,7 +84,6 @@ export const deleteRequest = async (url) => {
   }
 };
 
-
 //HELPERS
 
 export const generateDateString = (date) => {
@@ -110,68 +108,44 @@ export const generateDateString = (date) => {
   return `${day} de ${month} de ${year}`;
 };
 
-export const register = async (
-  formData,
-  setloader,
-  setResponseMessage,
-  setFormData,
-  navigate
-) => {
+export const register = async (nameL, lastNameL, profileImgL, emailL, passwordL, navigate) => {
   try {
     const dataBody = {
-      name: formData.name,
-      lastName: formData.lastName,
-      email: formData.email,
-      password: formData.password,
-      profileImg: formData.profileImg,
-    };
+      name: nameL,
+      lastName: lastNameL,
+      profileImg: profileImgL,
+      email: emailL,
+      password: passwordL
+    }
 
-    const response = await postRequest(
-      "http://localhost:8080/api/user/register",
-      dataBody
-    );
-
-    setloader(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-
-    setloader(false);
-    setResponseMessage(response);
-
-    setFormData({
-      name: "",
-      lastName: "",
-      email: "",
-      password: "",
-      profileImg: null,
-    });
-
-    // Redirigir a la página de inicio de sesión después de un tiempo adicional
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    navigate("/auth/login");
+    const response = await postRequest("http://localhost:8080/api/user/register", dataBody)
+    if(response) {
+      navigate("/auth/login")
+    }
   } catch (error) {
-    console.error("Error during registration", error);
+    console.error("Error al registrarse", error);
   }
 };
 
-// functions.js
 export const login = async (emailL, passwordL, navigate, setpasswordIncorrect) => {
   const dataBody = {
     email: emailL,
     password: passwordL,
   };
 
-  const response = await postRequest("http://localhost:8080/api/user/login", dataBody);
+  const response = await postRequest(
+    "http://localhost:8080/api/user/login",
+    dataBody
+  );
+  console.log(response);
 
-  if (response.code === 1) {
-    return setpasswordIncorrect(true);
-  } else if (response.user) {
-    localStorage.setItem("token", response.user);
-    navigate("/");
-    window.location.reload();
-  }
+  // if (response.code === 1) {
+  //   return setpasswordIncorrect(true);
+  // }
+  localStorage.setItem("token", response.user);
+  navigate("/");
+  window.location.reload();
 };
-
 
 export const logout = (navigate) => {
   localStorage.removeItem("token");
@@ -192,7 +166,6 @@ export const decode = () => {
     return null;
   }
 };
-
 
 export const updateBio = async (uBio, id) => {
   const dataBio = {

@@ -6,13 +6,15 @@ import { ToastContainer, toast } from "react-toastify";
 
 import io from "socket.io-client";
 import NotificationsWindow from "../NotificactionWindow/NotificationsWindow";
-const socket = io("/");
+import ChatWindow from "../../../../components/ChatWindow/ChatWindow";
+const socket = io();
 
 const ProfileHome = () => {
   const { user, isPremium } = useContext(setContext);
   const [userPanel, setuserPanel] = useState({});
   const [notificaciones, setnotificaciones] = useState([]);
   const [window, setWindow] = useState(false);
+  const [chat, setchat] = useState(false);
 
   useEffect(() => {
     const fetchUserPanel = async () => {
@@ -71,6 +73,10 @@ const ProfileHome = () => {
     setWindow(!window);
   };
 
+  const handleSeeChats = () => {
+    setchat(!chat);
+  };
+
   return (
     <>
       <ToastContainer />
@@ -95,6 +101,9 @@ const ProfileHome = () => {
         <h1>Saldo</h1>
         <p>{`$${userPanel.balance}`}</p>
       </div>
+      <div className="panel-chat" onClick={handleSeeChats}>
+        <h1>Chat</h1>
+      </div>
       {isPremium && (
         <div className="isPremium">
           <h1>Usuario Premium 👑</h1>
@@ -109,6 +118,8 @@ const ProfileHome = () => {
           toast={toast}
         />
       )}
+
+      {chat && <ChatWindow />}
     </>
   );
 };

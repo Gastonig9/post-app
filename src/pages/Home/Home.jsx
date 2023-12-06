@@ -4,6 +4,7 @@ import ProfileHome from "./components/ProfileHome/ProfileHome";
 import { setContext } from "../../context/context";
 import "./Home.css";
 import FriendsHome from "./components/FriendsHome/FriendsHome";
+import ChatWindow from "../../components/ChatWindow/ChatWindow";
 
 const Home = () => {
   const { user } = useContext(setContext);

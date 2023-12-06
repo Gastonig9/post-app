@@ -1,0 +1,75 @@
+.chat-friends {
+  width: 25%;
+  height: 600px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background-color: white;
+  color: brown;
+  border-left: 4px solid brown;
+  border-top: 4px solid brown;
+  z-index: 9999;
+  padding: 20px 20px;
+}
+
+.friend-ch {
+  padding: 10px 9px;
+}
+
+.friend-ch:hover {
+  cursor: pointer;
+  background-color: #640c00;
+  color: white;
+}
+
+/* CHAT INDIVIDUAL */
+
+.chat-window {
+  width: 25%;
+  height: 600px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background-color: white;
+  color: brown;
+  border-left: 4px solid brown;
+  border-top: 4px solid brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 9999;
+  padding: 20px 20px;
+}
+
+.chat-form input {
+  width: 70%;
+  padding: 10px;
+}
+
+.chat-form button {
+  width: 30%;
+  padding: 10px;
+  background-color: #640c00;
+  color: white;
+}
+
+/* MESSAGES */
+
+.messages {
+    overflow-Y: scroll;
+}
+
+.my-message {
+  text-align: right;
+  color: #640c00;
+  padding: 10px;
+  /* Agrega otros estilos según tu diseño */
+}
+
+.friend-message {
+  text-align: left;
+  background-color: #f0f0f0;
+  color: #640c00;
+  padding: 10px;
+  /* Agrega otros estilos según tu diseño */
+}

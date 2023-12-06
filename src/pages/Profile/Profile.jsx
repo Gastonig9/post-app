@@ -9,7 +9,7 @@ import PostSaved from "./PostSaved/PostSaved";
 import io from "socket.io-client";
 import ProfileInfo from "./components/ProfileInfo/ProfileInfo";
 
-const socket = io("/");
+const socket = io();
 
 const Profile = () => {
   const { uid } = useParams();

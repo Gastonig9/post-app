@@ -3,7 +3,7 @@ import "./NotificationsWindow.css";
 import { postRequest } from "../../../../helpers/helpers";
 import { io } from "socket.io-client";
 
-const socket = io("/");
+const socket = io();
 
 const NotificationsWindow = ({ notifications, closeWindow, userId, toast }) => {
 
