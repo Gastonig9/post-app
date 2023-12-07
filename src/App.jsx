@@ -14,7 +14,6 @@ import { useContext } from "react";
 import { setContext } from "./context/context";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import Premium from "./pages/Premium/Premium";
-// import ChatWindow from "./components/ChatWindow/ChatWindow";
 
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
           <MainHeader />
           <NavbarLogIn />
           <Navbar />
-          {/* <ChatWindow /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:categoria" element={<Categoria />} />

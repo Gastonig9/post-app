@@ -3,7 +3,7 @@ import { generateDateString, postRequest } from "../../helpers/helpers";
 import { useContext, useEffect } from "react";
 import { setContext } from "../../context/context";
 import { logout } from "../../helpers/helpers";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const NavbarLogIn = () => {
   const { user, isPremium } = useContext(setContext);
   const navigate = useNavigate();
@@ -24,12 +24,12 @@ const NavbarLogIn = () => {
 
         {!user ? (
           <div className="session">
-            <a href="/auth/login">
+            <Link to="/auth/login">
               <button>Login</button>
-            </a>
-            <a href="/auth/register">
+            </Link>
+            <Link to="/auth/register">
               <button>Sign in</button>
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="dropdown drop-contain">
@@ -45,29 +45,29 @@ const NavbarLogIn = () => {
 
             <ul className="dropdown-menu">
               <li>
-                <a className="dropdown-item" href={`/profile/${user._id}`}>
+                <Link className="dropdown-item" to={`/profile/${user._id}`}>
                   Mi perfil
-                </a>
+                </Link>
               </li>
 
               {isPremium ? (
                 <li>
-                  <a className="dropdown-item" href="/create-post">
+                  <Link className="dropdown-item" to="/create-post">
                     Crear post
-                  </a>
+                  </Link>
                 </li>
               ) : (
                 <li>
-                  <a className="dropdown-item drop-premium" href="/premium">
+                  <Link className="dropdown-item drop-premium" to="/premium">
                     Premium 👑​
-                  </a>
+                  </Link>
                 </li>
               )}
 
               <li>
-                <a className="dropdown-item" href="#" onClick={handleLogout}>
+                <Link className="dropdown-item" to="#" onClick={handleLogout}>
                   Logout
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
