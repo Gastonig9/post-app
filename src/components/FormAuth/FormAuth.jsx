@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { login, register } from "../../helpers/helpers";
 import "./FormAuth.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FormAuth = ({ choose }) => {
   const [formDataLogin, setFormDataLogin] = useState({
@@ -89,7 +89,7 @@ const FormAuth = ({ choose }) => {
             />
 
             <a href="#">¿Olvidaste tu contraseña?</a>
-            <p>¿No tienes una cuenta? <a href="/auth/register">Registrate</a></p>
+            <p>¿No tienes una cuenta? <Link to="/auth/register">Registrate</Link></p>
             {passwordIncorrect && <p className="password-incorrect">Contraseña incorrecta</p> }
             <button type="submit">Ingresar</button>
           </form>
@@ -166,7 +166,7 @@ const FormAuth = ({ choose }) => {
               </button>
               <div className="cuenta">
                 <span>¿Ya tienes una cuenta?</span>{" "}
-                <a href="/auth/login">Inicia sesion</a>
+                <Link to="/auth/login">Inicia sesion</Link>
               </div>
             </>
           )}
