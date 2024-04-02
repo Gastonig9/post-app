@@ -13,7 +13,7 @@ const PostsHome = () => {
     async function fetchPosts() {
       try {
         const dataPost = await getRequest(
-          "http://localhost:8080/api/post/getPosts"
+          "https://post-api-1-hu4b.onrender.com/api/post/getPosts"
         );
         if (dataPost) {
           const dataResult = dataPost.result;

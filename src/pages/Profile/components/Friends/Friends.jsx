@@ -8,7 +8,7 @@ const Friends = ({ userId }) => {
   useEffect(() => {
     const friendsFetch = async () => {
       const dataFriends = await getRequest(
-        `http://localhost:8080/api/user/see-friends/${userId}`
+        `https://post-api-1-hu4b.onrender.com/api/user/see-friends/${userId}`
       );
 
       setfriends(dataFriends.userFriends.friends);

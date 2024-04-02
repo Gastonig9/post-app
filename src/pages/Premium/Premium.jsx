@@ -12,7 +12,7 @@ const Premium = () => {
   const handleHasPremium = async () => {
     try {
       const response = await postRequest(
-        `http://localhost:8080/api/user/get-premium/${user._id}`
+        `https://post-api-1-hu4b.onrender.com/api/user/get-premium/${user._id}`
       );
       let count = 0;
 

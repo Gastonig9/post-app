@@ -16,7 +16,7 @@ const PostDetail = () => {
     async function fetchPostDetail() {
       try {
         const response = await getRequest(
-          `http://localhost:8080/api/post/getPostById/${pid}`
+          `https://post-api-1-hu4b.onrender.com/api/post/getPostById/${pid}`
         );
 
         setPostDetail(response.result);
@@ -33,7 +33,7 @@ const PostDetail = () => {
       async function fetchRecommendedPosts() {
         try {
           const dataPost = await getRequest(
-            "http://localhost:8080/api/post/getPosts"
+            "https://post-api-1-hu4b.onrender.com/api/post/getPosts"
           );
           if (dataPost) {
             const dataResult = dataPost.result;

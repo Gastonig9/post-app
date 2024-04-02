@@ -21,7 +21,7 @@ const Profile = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await getRequest(
-          `http://localhost:8080/api/user/getUserById/${uid}`
+          `https://post-api-1-hu4b.onrender.com/api/user/getUserById/${uid}`
         );
         setuserProfile(response.user);
         setIsLoading(false);

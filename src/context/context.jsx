@@ -18,7 +18,7 @@ function PostProvider(props) {
     const verifyUserRole = async() => {
       try {
         if(user && user._id) {
-          const response = await postRequest(`http://localhost:8080/api/user/isPremium/${user._id}`)
+          const response = await postRequest(`https://post-api-1-hu4b.onrender.com/api/user/isPremium/${user._id}`)
           setisPremium(response.isPremium)
         }
 

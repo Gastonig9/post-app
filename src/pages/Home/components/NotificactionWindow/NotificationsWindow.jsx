@@ -10,7 +10,7 @@ const NotificationsWindow = ({ notifications, closeWindow, userId, toast }) => {
   const handleAcceptRequest = async (requestId, senderId) => {
     try {
        const response = await postRequest(
-        `http://localhost:8080/api/user/accept-request/${userId}/${senderId}/${requestId}`
+        `https://post-api-1-hu4b.onrender.com/api/user/accept-request/${userId}/${senderId}/${requestId}`
       );
         toast.success(response.message)
         window.location.reload()

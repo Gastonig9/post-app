@@ -11,7 +11,7 @@ const FavSection = ({ postId, userId }) => {
   const handleFavPost = async () => {
     try {
       await postRequest(
-        `http://localhost:8080/api/post/${postId}/${userId}/fav`
+        `https://post-api-1-hu4b.onrender.com/api/post/${postId}/${userId}/fav`
       );
       setsave(true);
       toast.success("¡Guardado exitoso!");
@@ -26,7 +26,7 @@ const FavSection = ({ postId, userId }) => {
       if (userId) {
         try {
           const checkPostSave = await getRequest(
-            `http://localhost:8080/api/post/favPost/${userId}`
+            `https://post-api-1-hu4b.onrender.com/api/post/favPost/${userId}`
           );
           if (checkPostSave.publiaciones) {
             const postSaved = checkPostSave.publiaciones;

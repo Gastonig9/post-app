@@ -48,7 +48,7 @@ const CreatePost = () => {
         image: dataPostForm.image,
       };
       const response = await fetch(
-        `http://localhost:8080/api/post/create-post/${user._id}/`,
+        `https://post-api-1-hu4b.onrender.com/api/post/create-post/${user._id}/`,
         {
           method: "POST",
           headers: {

@@ -118,7 +118,7 @@ export const register = async (nameL, lastNameL, profileImgL, emailL, passwordL,
       password: passwordL
     }
 
-    const response = await postRequest("http://localhost:8080/api/user/register", dataBody)
+    const response = await postRequest("https://post-api-1-hu4b.onrender.com/api/user/register", dataBody)
     if(response) {
       navigate("/auth/login")
     }
@@ -134,7 +134,7 @@ export const login = async (emailL, passwordL, navigate, setpasswordIncorrect) =
   };
 
   const response = await postRequest(
-    "http://localhost:8080/api/user/login",
+    "https://post-api-1-hu4b.onrender.com/api/user/login",
     dataBody
   );
   console.log(response);
@@ -172,5 +172,5 @@ export const updateBio = async (uBio, id) => {
     bio: uBio,
   };
 
-  await putRequest("http://localhost:8080/api/user/update-bio", id, dataBio);
+  await putRequest("https://post-api-1-hu4b.onrender.com/api/user/update-bio", id, dataBio);
 };

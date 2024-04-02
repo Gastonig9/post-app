@@ -15,7 +15,7 @@ const PostSaved = ({ userId }) => {
       if (userId) {
         try {
           const save = await getRequest(
-            `http://localhost:8080/api/post/favPost/${userId}`
+            `https://post-api-1-hu4b.onrender.com/api/post/favPost/${userId}`
           );
 
           if (save.publiaciones.length > 0) {
@@ -43,7 +43,7 @@ const PostSaved = ({ userId }) => {
 
   const handleDeletePost = async (postId) => {
     try {
-      const deletePost = await deleteRequest(`http://localhost:8080/api/post/${userId}/${postId}/deleteFav`);
+      const deletePost = await deleteRequest(`https://post-api-1-hu4b.onrender.com/api/post/${userId}/${postId}/deleteFav`);
     } catch (error) {
       console.error("Error al eliminar el post:", error);
     }

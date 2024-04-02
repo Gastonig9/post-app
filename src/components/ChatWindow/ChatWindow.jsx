@@ -18,7 +18,7 @@ const ChatWindow = () => {
     const friendsFetch = async () => {
       if (user && user._id) {
         const dataFriends = await getRequest(
-          `http://localhost:8080/api/user/see-friends/${user._id}`
+          `https://post-api-1-hu4b.onrender.com/api/user/see-friends/${user._id}`
         );
         setfriendsToChat(dataFriends.userFriends.friends);
       }
@@ -28,15 +28,19 @@ const ChatWindow = () => {
   }, [user, user._id]);
 
   useEffect(() => {
+    if (selectedFriend && user) {
+      const chatId = [user._id, selectedFriend._id].sort().join("-");
+      socket.emit("joinChat", { chatId });
+    }
+
     socket.on("message", (dataM) => {
       setMessages((prevMessages) => [...prevMessages, dataM]);
     });
 
-    // Cleanup the event listener when the component unmounts
     return () => {
       socket.off("message");
     };
-  }, []);
+  }, [selectedFriend, user]);
 
   const handleChatIndivual = (friend) => {
     setSelectedFriend(friend);
@@ -45,10 +49,12 @@ const ChatWindow = () => {
 
   const handleSendMessage = (e) => {
     e.preventDefault();
+    const chatId = [user._id, selectedFriend._id].sort().join("-");
     socket.emit("message", {
       sender: user._id,
       to: selectedFriend._id,
       message: newMessage,
+      chatId,
     });
     setNewMessage("");
   };
@@ -74,11 +80,11 @@ const ChatWindow = () => {
       {selectedFriend && seeChat && (
         <div className="chat-window">
           <h3>{`Chat con ${selectedFriend.name} ${selectedFriend.lastName}`}</h3>
-
           <div className="messages">
             {messages.map((msg, index) => (
               <div key={index} className={msg.sender === user._id ? "my-message" : "friend-message"}>
                 <p>{msg.sender === user._id ? "Yo" : selectedFriend.name}</p>
+                <hr/>
                 <p>{msg.message}</p>
               </div>
             ))}

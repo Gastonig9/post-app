@@ -14,7 +14,7 @@ const FriendsHome = () => {
       try {
         if (user && user._id) {
           const response = await getRequest(
-            `http://localhost:8080/api/user/getAllUsers`
+            `https://post-api-1-hu4b.onrender.com/api/user/getAllUsers`
           );
           const onlyNoUser = response.users.filter(
             (noUser) => noUser._id !== user._id
@@ -31,7 +31,7 @@ const FriendsHome = () => {
 
   const handleSendRequest = async (userSendId) => {
     try {
-      const response = await postRequest(`http://localhost:8080/api/user/send-contact-request/from/${user._id}/to/${userSendId}`);
+      const response = await postRequest(`https://post-api-1-hu4b.onrender.com/api/user/send-contact-request/from/${user._id}/to/${userSendId}`);
       if (response.code === 1) {
         toast.success(response.message);
       }

@@ -21,7 +21,7 @@ const ProfileHome = () => {
       try {
         if (user && user._id) {
           const response = await getRequest(
-            `http://localhost:8080/api/user/getUserById/${user._id}`
+            `https://post-api-1-hu4b.onrender.com/api/user/getUserById/${user._id}`
           );
           setuserPanel(response.user);
         }
@@ -51,7 +51,7 @@ const ProfileHome = () => {
       try {
         if (user && user._id) {
           const response = await getRequest(
-            `http://localhost:8080/api/user/get-request-friends/${user._id}`
+            `https://post-api-1-hu4b.onrender.com/api/user/get-request-friends/${user._id}`
           );
           const friendRequest = response.requestF.friendRequests;
           if (friendRequest.length > 0) {
